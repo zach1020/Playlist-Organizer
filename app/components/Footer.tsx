@@ -2,22 +2,22 @@ import React from 'react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-cyber-darker/80 border-t border-cyber-accent/30 backdrop-blur-md mt-auto">
+    <footer className="neumorphic-card-inset mt-auto">
       <div className="container mx-auto px-4 py-6">
         <div className="text-center">
-          <p className="text-cyber-gray-lighter text-sm cyber-text">
-            <span className="text-cyber-accent">Vibe-coded</span> with{' '}
-            <span className="text-cyber-pink animate-pulse">♥</span> by{' '}
-            <span className="text-cyber-blue font-semibold">Capybara Watanabe (Zach)</span>
+          <p className="neumorphic-subtitle text-sm">
+            <span className="neumorphic-accent">Vibe-coded</span> with{' '}
+            <span className="neumorphic-accent animate-pulse">♥</span> by{' '}
+            <span className="neumorphic-accent font-semibold">Capybara Watanabe (Zach)</span>
           </p>
           <div className="mt-2">
             <a
               href="https://www.zachbohl.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-cyber-accent-light hover:text-cyber-accent transition-colors duration-300 cyber-text text-xs hover:scale-105 transform"
+              className="inline-flex items-center gap-2 neumorphic-accent hover:neumorphic-accent transition-colors duration-300 text-xs hover:scale-105 transform"
             >
-              <span className="underline decoration-cyber-accent/50 underline-offset-2">
+              <span className="underline decoration-neumorphic-accent/50 underline-offset-2">
                 zachbohl.com
               </span>
               <svg

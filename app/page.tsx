@@ -341,38 +341,33 @@ export default function Home() {
 
   if (!accessToken) {
     return (
-      <div className="min-h-screen matrix-bg relative overflow-hidden">
-        {/* Animated Matrix Background */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="matrix-fall"></div>
+      <div className="min-h-screen neumorphic-bg relative overflow-hidden">
+        {/* Subtle Background Elements */}
+        <div className="absolute top-20 left-10 animate-float opacity-30">
+          <div className="w-8 h-8 neumorphic-shadow rounded-full bg-gradient-to-br from-purple-300 to-purple-400"></div>
+        </div>
+        <div className="absolute top-40 right-20 animate-float opacity-30" style={{ animationDelay: '2s' }}>
+          <div className="w-6 h-6 neumorphic-shadow rounded-full bg-gradient-to-br from-pink-300 to-pink-400"></div>
+        </div>
+        <div className="absolute bottom-40 left-20 animate-float opacity-30" style={{ animationDelay: '4s' }}>
+          <div className="w-4 h-4 neumorphic-shadow rounded-full bg-gradient-to-br from-blue-300 to-blue-400"></div>
         </div>
         
-              {/* Subtle Background Elements */}
-      <div className="absolute top-20 left-10 animate-float opacity-20">
-        <div className="w-8 h-8 bg-cyber-accent/30 rounded-full blur-sm"></div>
-      </div>
-      <div className="absolute top-40 right-20 animate-float opacity-20" style={{ animationDelay: '2s' }}>
-        <div className="w-6 h-6 bg-cyber-pink/30 rounded-full blur-sm"></div>
-      </div>
-      <div className="absolute bottom-40 left-20 animate-float opacity-20" style={{ animationDelay: '4s' }}>
-        <div className="w-4 h-4 bg-cyber-blue/30 rounded-full blur-sm"></div>
-      </div>
-      
-      {/* Additional Capybara Background Images */}
-      <div className="absolute top-60 right-40 animate-float opacity-10" style={{ animationDelay: '3s' }}>
-        <img 
-          src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=60&h=60&fit=crop&crop=center" 
-          alt="Capybara"
-          className="w-16 h-16 rounded-full object-cover border border-cyber-accent/20"
-        />
-      </div>
-      <div className="absolute bottom-60 right-60 animate-float opacity-20" style={{ animationDelay: '5s' }}>
-        <img 
-          src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=40&h=40&fit=crop&crop=center" 
-          alt="Capybara"
-          className="w-12 h-12 rounded-full object-cover border border-cyber-accent/20"
-        />
-      </div>
+        {/* Additional Capybara Background Images */}
+        <div className="absolute top-60 right-40 animate-float opacity-20" style={{ animationDelay: '3s' }}>
+          <img 
+            src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=60&h=60&fit=crop&crop=center" 
+            alt="Capybara"
+            className="w-16 h-16 rounded-full object-cover neumorphic-shadow"
+          />
+        </div>
+        <div className="absolute bottom-60 right-60 animate-float opacity-30" style={{ animationDelay: '5s' }}>
+          <img 
+            src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=40&h=40&fit=crop&crop=center" 
+            alt="Capybara"
+            className="w-12 h-12 rounded-full object-cover neumorphic-shadow"
+          />
+        </div>
         
         <div className="container mx-auto px-4 py-16 relative z-10">
           <div className="max-w-2xl mx-auto text-center">
@@ -382,26 +377,26 @@ export default function Home() {
                 <img 
                   src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=200&h=200&fit=crop&crop=center" 
                   alt="Capybara"
-                  className="w-32 h-32 mx-auto rounded-full object-cover border-4 border-cyber-accent/30 shadow-2xl animate-float"
+                  className="w-32 h-32 mx-auto rounded-full object-cover neumorphic-shadow-xl animate-float"
                 />
               </div>
-              <h1 className="text-6xl font-black cyber-text cyber-glow mb-6 bg-gradient-to-r from-cyber-accent via-cyber-pink to-cyber-blue bg-clip-text text-transparent">
+              <h1 className="text-6xl font-black neumorphic-title mb-6 neumorphic-accent">
                 CAPY'S AMAZING
               </h1>
-              <h2 className="text-4xl font-bold text-cyber-white mb-6 cyber-text">
+              <h2 className="text-4xl font-bold neumorphic-title mb-6">
                 PLAYLIST ORGANIZER
               </h2>
-              <p className="text-xl text-cyber-gray-lighter max-w-2xl mx-auto">
-                Transform your Spotify playlists into <span className="text-cyber-accent font-semibold">DJ-ready masterpieces</span> with real-time BPM & key analysis
+              <p className="text-xl neumorphic-subtitle max-w-2xl mx-auto">
+                Transform your Spotify playlists into <span className="neumorphic-accent font-semibold">DJ-ready masterpieces</span> with real-time BPM & key analysis
               </p>
             </div>
             
-            <div className="card">
-                            <h2 className="text-2xl font-bold text-cyber-white mb-4 cyber-text">
+            <div className="card neumorphic-card-hover">
+              <h2 className="text-2xl font-bold neumorphic-title mb-4">
                 CONNECT TO SPOTIFY
               </h2>
-              <p className="text-cyber-gray-lighter mb-6">
-                This cyberpunk app will analyze your playlists in real-time and create new organized versions
+              <p className="neumorphic-subtitle mb-6">
+                This neumorphic app will analyze your playlists in real-time and create new organized versions
               </p>
               
               <a
@@ -412,9 +407,9 @@ export default function Home() {
                 Connect Spotify Account
               </a>
                 
-                <div className="mt-6 p-4 bg-cyber-purple-light/20 border border-cyber-accent/30 rounded-xl">
-                  <h4 className="font-semibold text-cyber-accent mb-2 cyber-text">WHAT THIS CYBERPUNK APP DOES:</h4>
-                <ul className="text-sm text-cyber-gray-lighter space-y-2 text-left">
+              <div className="mt-6 p-4 neumorphic-card-inset">
+                <h4 className="font-semibold neumorphic-accent mb-2">WHAT THIS NEUMORPHIC APP DOES:</h4>
+                <ul className="text-sm neumorphic-subtitle space-y-2 text-left">
                   <li>• <strong>Real-time Analysis:</strong> Analyzes Spotify audio streams for BPM and key</li>
                   <li>• <strong>Smart Organization:</strong> Groups tracks by BPM ranges, then by Camelot number</li>
                   <li>• <strong>DJ-Ready:</strong> Creates new playlists perfect for mixing</li>
@@ -430,21 +425,16 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen matrix-bg relative overflow-hidden">
-      {/* Animated Matrix Background */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="matrix-fall"></div>
-      </div>
-      
+    <div className="min-h-screen neumorphic-bg relative overflow-hidden">
       {/* Subtle Background Elements */}
-      <div className="absolute top-20 left-10 animate-float opacity-20">
-        <div className="w-8 h-8 bg-cyber-accent/30 rounded-full blur-sm"></div>
+      <div className="absolute top-20 left-10 animate-float opacity-30">
+        <div className="w-8 h-8 neumorphic-shadow rounded-full bg-gradient-to-br from-purple-300 to-purple-400"></div>
       </div>
-      <div className="absolute top-40 right-20 animate-float opacity-20" style={{ animationDelay: '2s' }}>
-        <div className="w-6 h-6 bg-cyber-pink/30 rounded-full blur-sm"></div>
+      <div className="absolute top-40 right-20 animate-float opacity-30" style={{ animationDelay: '2s' }}>
+        <div className="w-6 h-6 neumorphic-shadow rounded-full bg-gradient-to-br from-pink-300 to-pink-400"></div>
       </div>
-      <div className="absolute bottom-40 left-20 animate-float opacity-20" style={{ animationDelay: '4s' }}>
-        <div className="w-4 h-4 bg-cyber-blue/30 rounded-full blur-sm"></div>
+      <div className="absolute bottom-40 left-20 animate-float opacity-30" style={{ animationDelay: '4s' }}>
+        <div className="w-4 h-4 neumorphic-shadow rounded-full bg-gradient-to-br from-blue-300 to-blue-400"></div>
       </div>
       
       <div className="container mx-auto px-4 py-8 relative z-10">
@@ -456,22 +446,22 @@ export default function Home() {
               <img 
                 src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=200&h=200&fit=crop&crop=center" 
                 alt="Capybara"
-                className="w-32 h-32 mx-auto rounded-full object-cover border-4 border-cyber-accent/30 shadow-2xl animate-float"
+                className="w-32 h-32 mx-auto rounded-full object-cover neumorphic-shadow-xl animate-float"
               />
             </div>
-            <h1 className="text-6xl font-black cyber-text cyber-glow mb-6 bg-gradient-to-r from-cyber-accent via-cyber-pink to-cyber-blue bg-clip-text text-transparent">
+            <h1 className="text-6xl font-black neumorphic-title mb-6 neumorphic-accent">
               CAPY'S AMAZING
             </h1>
-            <h2 className="text-4xl font-bold text-cyber-white mb-4 cyber-text">
+            <h2 className="text-4xl font-bold neumorphic-title mb-4">
               PLAYLIST ORGANIZER
             </h2>
-            <p className="text-xl text-cyber-gray-lighter max-w-2xl mx-auto">
-              Transform your Spotify playlists into <span className="text-cyber-accent font-semibold">DJ-ready masterpieces</span> with real-time BPM & key analysis
+            <p className="text-xl neumorphic-subtitle max-w-2xl mx-auto">
+              Transform your Spotify playlists into <span className="neumorphic-accent font-semibold">DJ-ready masterpieces</span> with real-time BPM & key analysis
             </p>
             {user && (
-              <div className="mt-6 p-4 bg-cyber-purple-light/20 rounded-xl border border-cyber-accent/30">
-                <p className="text-cyber-accent-light font-semibold">
-                  Welcome back, <span className="text-cyber-white">{user.display_name}</span>! Ready to organize some beats?
+              <div className="mt-6 p-4 neumorphic-card-inset">
+                <p className="neumorphic-accent font-semibold">
+                  Welcome back, <span className="neumorphic-title">{user.display_name}</span>! Ready to organize some beats?
                 </p>
               </div>
             )}
@@ -480,12 +470,12 @@ export default function Home() {
 
         {/* Message Display */}
         {message && (
-          <div className={`mb-6 p-4 rounded-xl border backdrop-blur-md ${
+          <div className={`mb-6 p-4 neumorphic-card ${
             message.type === 'success' 
-              ? 'bg-cyber-green/20 border-cyber-green text-cyber-green-light'
+              ? 'neumorphic-success'
               : message.type === 'error'
-              ? 'bg-cyber-pink/20 border-cyber-pink text-cyber-pink-light'
-              : 'bg-cyber-blue/20 border-cyber-blue text-cyber-blue-light'
+              ? 'neumorphic-error'
+              : 'neumorphic-info'
           }`}>
             <div className="flex items-center gap-3">
               {message.type === 'success' && <CheckCircle className="w-5 h-5" />}
@@ -497,37 +487,37 @@ export default function Home() {
         )}
 
         {/* Spotify SDK Status */}
-        <div className={`mb-6 p-4 rounded-xl border backdrop-blur-md ${
+        <div className={`mb-6 p-4 neumorphic-card ${
           isSpotifySDKLoaded 
-            ? 'bg-cyber-green/20 border-cyber-green' 
-            : 'bg-cyber-yellow/20 border-cyber-yellow'
+            ? 'neumorphic-success' 
+            : 'neumorphic-warning'
         }`}>
           <div className="flex items-center gap-3">
             {isSpotifySDKLoaded ? (
-              <CheckCircle className="w-5 h-5 text-cyber-green-light" />
+              <CheckCircle className="w-5 h-5" />
             ) : (
-              <Loader2 className="w-5 h-5 animate-spin text-cyber-yellow-light" />
+              <Loader2 className="w-5 h-5 animate-spin" />
             )}
-            <span className={`font-medium cyber-text ${
-              isSpotifySDKLoaded ? 'text-cyber-green-light' : 'text-cyber-yellow-light'
+            <span className={`font-medium ${
+              isSpotifySDKLoaded ? 'neumorphic-success' : 'neumorphic-warning'
             }`}>
               {isSpotifySDKLoaded 
-                ? 'CYBERPUNK AUDIO ANALYSIS READY' 
-                : 'LOADING CYBERPUNK AUDIO ENGINE...'
+                ? 'NEUMORPHIC AUDIO ANALYSIS READY' 
+                : 'LOADING NEUMORPHIC AUDIO ENGINE...'
               }
             </span>
           </div>
         </div>
 
         {/* Troubleshooting Help */}
-        <div className="card mb-6">
+        <div className="card mb-6 neumorphic-card-hover">
           <details className="group">
-            <summary className="cursor-pointer text-lg font-semibold text-cyber-white mb-2 hover:text-cyber-accent transition-colors cyber-text">
-              CYBERPUNK TROUBLESHOOTING MATRIX
+            <summary className="cursor-pointer text-lg font-semibold neumorphic-title mb-2 hover:neumorphic-accent transition-colors">
+              NEUMORPHIC TROUBLESHOOTING MATRIX
             </summary>
-            <div className="text-cyber-gray-lighter text-sm space-y-4 mt-4">
-              <div className="p-4 bg-cyber-purple-light/20 rounded-lg border border-cyber-accent/20">
-                <h4 className="font-medium text-cyber-accent mb-2 cyber-text">PLAYLIST NOT SHOWING IN SPOTIFY?</h4>
+            <div className="neumorphic-subtitle text-sm space-y-4 mt-4">
+              <div className="p-4 neumorphic-card-inset">
+                <h4 className="font-medium neumorphic-accent mb-2">PLAYLIST NOT SHOWING IN SPOTIFY?</h4>
                 <ul className="list-disc list-inside space-y-1 text-xs">
                   <li>Refresh your Spotify app</li>
                   <li>Check "Your Library" → "Playlists"</li>
@@ -535,16 +525,16 @@ export default function Home() {
                   <li>Ensure you're logged into the same account</li>
                 </ul>
               </div>
-              <div className="p-4 bg-cyber-purple-light/20 rounded-lg border border-cyber-accent/20">
-                <h4 className="font-medium text-cyber-accent mb-2 cyber-text">AUDIO ANALYSIS ISSUES?</h4>
+              <div className="p-4 neumorphic-card-inset">
+                <h4 className="font-medium neumorphic-accent mb-2">AUDIO ANALYSIS ISSUES?</h4>
                 <ul className="list-disc list-inside space-y-1 text-xs">
                   <li>Make sure you have Spotify Premium</li>
                   <li>Check that tracks are available in your region</li>
                   <li>Try refreshing the page and reconnecting</li>
                 </ul>
               </div>
-              <div className="p-4 bg-cyber-purple-light/20 rounded-lg border border-cyber-accent/20">
-                <h4 className="font-medium text-cyber-accent mb-2 cyber-text">AUTHENTICATION PROBLEMS?</h4>
+              <div className="p-4 neumorphic-card-inset">
+                <h4 className="font-medium neumorphic-accent mb-2">AUTHENTICATION PROBLEMS?</h4>
                 <ul className="list-disc list-inside space-y-1 text-xs">
                   <li>Click "Connect Spotify Account" again</li>
                   <li>Accept all requested permissions</li>
@@ -570,9 +560,9 @@ export default function Home() {
           {tracks.length > 0 && (
             <div className="space-y-6">
             {/* Analysis Controls */}
-            <div className="card">
-              <h3 className="text-xl font-bold text-cyber-white mb-4 cyber-text">
-                CYBERPUNK AUDIO ANALYSIS ENGINE
+            <div className="card neumorphic-card-hover">
+              <h3 className="text-xl font-bold neumorphic-title mb-4">
+                NEUMORPHIC AUDIO ANALYSIS ENGINE
               </h3>
               
               <div className="space-y-4">
@@ -660,9 +650,9 @@ export default function Home() {
 
                 {/* Progress Bar */}
                 {isAnalyzing && (
-                  <div className="w-full bg-cyber-purple-light/30 rounded-full h-3 border border-cyber-accent/30">
+                  <div className="w-full neumorphic-card-inset rounded-full h-3">
                     <div
-                      className="bg-gradient-to-r from-cyber-accent to-cyber-blue h-3 rounded-full transition-all duration-300 shadow-lg"
+                      className="bg-gradient-to-r from-purple-400 to-blue-400 h-3 rounded-full transition-all duration-300 neumorphic-shadow-sm"
                       style={{ width: `${analysisProgress}%` }}
                     />
                   </div>
@@ -670,14 +660,14 @@ export default function Home() {
 
                 {/* Analysis Results Summary */}
                 {analysisResults.length > 0 && (
-                  <div className="bg-cyber-green/20 border border-cyber-green rounded-xl p-4 backdrop-blur-md">
+                  <div className="neumorphic-card neumorphic-success">
                     <div className="flex items-center gap-3 mb-3">
-                      <CheckCircle className="w-6 h-6 text-cyber-green-light" />
-                      <span className="font-semibold text-cyber-green-light cyber-text">
-                        CYBERPUNK ANALYSIS COMPLETE!
+                      <CheckCircle className="w-6 h-6" />
+                      <span className="font-semibold neumorphic-success">
+                        NEUMORPHIC ANALYSIS COMPLETE!
                       </span>
                     </div>
-                    <div className="text-sm text-cyber-green-light">
+                    <div className="text-sm neumorphic-success">
                       Successfully analyzed <span className="font-semibold">{analysisResults.length}</span> tracks for BPM and musical key signatures
                     </div>
                   </div>
@@ -686,55 +676,55 @@ export default function Home() {
             </div>
 
             {/* Organized Playlist Display */}
-                                {organizedPlaylist.length > 0 && (
-                      <div className="card">
-                        <h3 className="text-xl font-bold text-cyber-white mb-4 cyber-text">
-                          CYBERPUNK ORGANIZED PLAYLIST (BPM → CAMELOT)
-                        </h3>
-                        <TrackList organizedTracks={organizedPlaylist} />
-                      </div>
-                    )}
+            {organizedPlaylist.length > 0 && (
+              <div className="card neumorphic-card-hover">
+                <h3 className="text-xl font-bold neumorphic-title mb-4">
+                  NEUMORPHIC ORGANIZED PLAYLIST (BPM → CAMELOT)
+                </h3>
+                <TrackList organizedTracks={organizedPlaylist} />
+              </div>
+            )}
 
             {/* Original Tracks */}
-            <div className="card">
-              <h3 className="text-xl font-bold text-cyber-white mb-4 cyber-text">
+            <div className="card neumorphic-card-hover">
+              <h3 className="text-xl font-bold neumorphic-title mb-4">
                 ORIGINAL PLAYLIST TRACKS
               </h3>
               <div className="space-y-2">
                 {tracks.map((track, index) => {
                   const analysis = analysisResults.find(r => r.trackId === track.id)
                   return (
-                    <div key={track.id} className="flex items-center justify-between p-3 bg-cyber-purple-light/20 rounded-lg border border-cyber-accent/20 hover:border-cyber-accent/40 transition-colors">
+                    <div key={track.id} className="flex items-center justify-between p-3 neumorphic-card-inset rounded-lg hover:neumorphic-shadow transition-all">
                       <div className="flex items-center gap-3">
-                        <span className="text-cyber-accent text-sm w-8 font-mono">{index + 1}</span>
+                        <span className="neumorphic-accent text-sm w-8 font-mono">{index + 1}</span>
                         <img 
                           src={track.album.images?.[0]?.url || '/placeholder-album.png'} 
                           alt={track.album.name}
-                          className="w-10 h-10 rounded"
+                          className="w-10 h-10 rounded neumorphic-shadow-sm"
                         />
                         <div>
-                          <div className="text-cyber-white font-medium">{track.name}</div>
-                          <div className="text-cyber-gray-lighter text-sm">{track.artists.map(a => a.name).join(', ')}</div>
+                          <div className="neumorphic-title font-medium">{track.name}</div>
+                          <div className="neumorphic-subtitle text-sm">{track.artists.map(a => a.name).join(', ')}</div>
                         </div>
                       </div>
                       
                       {analysis ? (
                         <div className="flex items-center gap-4 text-sm">
                           <div className="text-center">
-                            <div className="text-cyber-accent">BPM</div>
-                            <div className="text-cyber-white font-mono cyber-text">{analysis.bpm}</div>
+                            <div className="neumorphic-accent">BPM</div>
+                            <div className="neumorphic-title font-mono">{analysis.bpm}</div>
                           </div>
                           <div className="text-center">
-                            <div className="text-cyber-accent">Key</div>
-                            <div className="text-cyber-white font-mono cyber-text">{analysis.key} {analysis.mode}</div>
+                            <div className="neumorphic-accent">Key</div>
+                            <div className="neumorphic-title font-mono">{analysis.key} {analysis.mode}</div>
                           </div>
                           <div className="text-center">
-                            <div className="text-cyber-accent">Camelot</div>
-                            <div className="text-cyber-white font-mono cyber-text">{analysis.camelot}</div>
+                            <div className="neumorphic-accent">Camelot</div>
+                            <div className="neumorphic-title font-mono">{analysis.camelot}</div>
                           </div>
                         </div>
                       ) : (
-                        <div className="text-cyber-gray-light text-sm">
+                        <div className="neumorphic-subtitle text-sm">
                           {isAnalyzing ? 'Analyzing...' : 'Not analyzed yet'}
                         </div>
                       )}

@@ -63,17 +63,17 @@ export default function PlaylistSelector({
 
   if (isLoading) {
     return (
-      <div className="card text-center">
-        <Loader2 className="w-8 h-8 mx-auto animate-spin text-spotify-green mb-4" />
-        <p className="text-gray-300">Loading your playlists...</p>
+      <div className="card text-center neumorphic-card-hover">
+        <Loader2 className="w-8 h-8 mx-auto animate-spin neumorphic-accent mb-4" />
+        <p className="neumorphic-subtitle">Loading your playlists...</p>
       </div>
     )
   }
 
   if (error) {
     return (
-      <div className="card text-center">
-        <p className="text-red-400 mb-4">{error}</p>
+      <div className="card text-center neumorphic-card-hover">
+        <p className="neumorphic-error mb-4">{error}</p>
         <button 
           onClick={loadPlaylists}
           className="btn-secondary"
@@ -85,17 +85,17 @@ export default function PlaylistSelector({
   }
 
   return (
-    <div className="card">
+    <div className="card neumorphic-card-hover">
       <div className="mb-6">
-        <h2 className="text-2xl font-bold text-white mb-2">Select a Playlist</h2>
-        <p className="text-gray-300">
+        <h2 className="text-2xl font-bold neumorphic-title mb-2">Select a Playlist</h2>
+        <p className="neumorphic-subtitle">
           Choose a playlist to organize by BPM and Camelot number
         </p>
       </div>
 
       {/* Search Bar */}
       <div className="relative mb-6">
-        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 neumorphic-subtitle w-5 h-5" />
         <input
           type="text"
           placeholder="Search playlists..."
@@ -113,8 +113,8 @@ export default function PlaylistSelector({
             onClick={() => onPlaylistSelect(playlist)}
             className={`cursor-pointer rounded-lg p-4 transition-all duration-200 hover:scale-105 ${
               selectedPlaylist?.id === playlist.id
-                ? 'bg-spotify-green/20 border-2 border-spotify-green'
-                : 'bg-spotify-light hover:bg-gray-700 border border-gray-600'
+                ? 'neumorphic-card-inset neumorphic-accent'
+                : 'neumorphic-card hover:neumorphic-shadow'
             }`}
           >
             {/* Playlist Image */}
@@ -123,27 +123,27 @@ export default function PlaylistSelector({
                 <img
                   src={playlist.images[0].url}
                   alt={playlist.name}
-                  className="w-full h-32 object-cover rounded-lg"
+                  className="w-full h-32 object-cover rounded-lg neumorphic-shadow-sm"
                 />
               ) : (
-                <div className="w-full h-32 bg-gray-700 rounded-lg flex items-center justify-center">
-                  <Music className="w-12 h-12 text-gray-500" />
+                <div className="w-full h-32 neumorphic-card-inset rounded-lg flex items-center justify-center">
+                  <Music className="w-12 h-12 neumorphic-subtitle" />
                 </div>
               )}
             </div>
 
             {/* Playlist Info */}
             <div>
-              <h3 className="font-semibold text-white mb-1 truncate">
+              <h3 className="font-semibold neumorphic-title mb-1 truncate">
                 {playlist.name}
               </h3>
-              <p className="text-sm text-gray-400 mb-2 line-clamp-2">
+              <p className="text-sm neumorphic-subtitle mb-2 line-clamp-2">
                 {playlist.description || 'No description'}
               </p>
-              <div className="flex items-center justify-between text-xs text-gray-500">
+              <div className="flex items-center justify-between text-xs neumorphic-subtitle">
                 <span>{playlist.tracks.total} tracks</span>
                 {selectedPlaylist?.id === playlist.id && (
-                  <span className="text-spotify-green font-medium">Selected</span>
+                  <span className="neumorphic-accent font-medium">Selected</span>
                 )}
               </div>
             </div>
@@ -153,8 +153,8 @@ export default function PlaylistSelector({
 
       {filteredPlaylists.length === 0 && (
         <div className="text-center py-8">
-          <Music className="w-16 h-16 mx-auto text-gray-500 mb-4" />
-          <p className="text-gray-400">
+          <Music className="w-16 h-16 mx-auto neumorphic-subtitle mb-4" />
+          <p className="neumorphic-subtitle">
             {searchTerm ? 'No playlists match your search.' : 'No playlists found.'}
           </p>
         </div>

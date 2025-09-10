@@ -71,10 +71,10 @@ export default function TrackList({ organizedTracks }: TrackListProps) {
   return (
     <div className="space-y-6">
       {Object.entries(bpmGroups).map(([bpmRange, tracksInRange]) => (
-        <div key={bpmRange} className="card">
+        <div key={bpmRange} className="neumorphic-card neumorphic-card-hover">
           <div className="mb-4">
-            <h3 className="text-xl font-bold text-white mb-2">{bpmRange}</h3>
-            <p className="text-gray-400">
+            <h3 className="text-xl font-bold neumorphic-title mb-2">{bpmRange}</h3>
+            <p className="neumorphic-subtitle">
               {tracksInRange.length} track groups • {tracksInRange.reduce((total, group) => total + group.tracks.length, 0)} total tracks
             </p>
           </div>
@@ -86,34 +86,34 @@ export default function TrackList({ organizedTracks }: TrackListProps) {
               const totalDuration = group.tracks.reduce((sum, track) => sum + track.duration_ms, 0)
 
               return (
-                <div key={groupId} className="border border-gray-700 rounded-lg overflow-hidden">
+                <div key={groupId} className="neumorphic-card-inset rounded-lg overflow-hidden">
                   {/* Group Header */}
                   <div
-                    className="bg-gray-800/50 p-4 cursor-pointer hover:bg-gray-800 transition-colors"
+                    className="p-4 cursor-pointer hover:neumorphic-shadow transition-all"
                     onClick={() => toggleGroup(groupId)}
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className={`w-8 h-8 rounded-full ${getCamelotColor(group.camelot)} flex items-center justify-center text-white text-sm font-bold`}>
+                        <div className={`w-8 h-8 rounded-full ${getCamelotColor(group.camelot)} flex items-center justify-center text-white text-sm font-bold neumorphic-shadow-sm`}>
                           {group.camelot}
                         </div>
                         <div>
-                          <h4 className="font-semibold text-white">
+                          <h4 className="font-semibold neumorphic-title">
                             Camelot {group.camelot}
                           </h4>
-                          <p className="text-sm text-gray-400">
+                          <p className="text-sm neumorphic-subtitle">
                             {group.tracks.length} tracks • {formatDuration(totalDuration)}
                           </p>
                         </div>
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="text-sm text-gray-400">
+                        <span className="text-sm neumorphic-subtitle">
                           ~{Math.round(group.bpm)} BPM
                         </span>
                         {isExpanded ? (
-                          <ChevronDown className="w-5 h-5 text-gray-400" />
+                          <ChevronDown className="w-5 h-5 neumorphic-subtitle" />
                         ) : (
-                          <ChevronRight className="w-5 h-5 text-gray-400" />
+                          <ChevronRight className="w-5 h-5 neumorphic-subtitle" />
                         )}
                       </div>
                     </div>
@@ -123,9 +123,9 @@ export default function TrackList({ organizedTracks }: TrackListProps) {
                   {isExpanded && (
                     <div className="p-4 space-y-3">
                       {group.tracks.map((track, index) => (
-                        <div key={track.id} className="flex items-center gap-4 p-3 bg-gray-800/30 rounded-lg">
+                        <div key={track.id} className="flex items-center gap-4 p-3 neumorphic-card-inset rounded-lg hover:neumorphic-shadow transition-all">
                           {/* Track Number */}
-                          <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-sm font-medium text-gray-300">
+                          <div className="w-8 h-8 neumorphic-card-inset rounded-full flex items-center justify-center text-sm font-medium neumorphic-subtitle">
                             {index + 1}
                           </div>
 
@@ -135,30 +135,30 @@ export default function TrackList({ organizedTracks }: TrackListProps) {
                               <img
                                 src={track.album.images[0].url}
                                 alt={track.album.name}
-                                className="w-full h-full object-cover rounded"
+                                className="w-full h-full object-cover rounded neumorphic-shadow-sm"
                               />
                             ) : (
-                              <div className="w-full h-full bg-gray-700 rounded flex items-center justify-center">
-                                <Music className="w-6 h-6 text-gray-500" />
+                              <div className="w-full h-full neumorphic-card-inset rounded flex items-center justify-center">
+                                <Music className="w-6 h-6 neumorphic-subtitle" />
                               </div>
                             )}
                           </div>
 
                           {/* Track Info */}
                           <div className="flex-1 min-w-0">
-                            <h5 className="font-medium text-white truncate">
+                            <h5 className="font-medium neumorphic-title truncate">
                               {track.name}
                             </h5>
-                            <p className="text-sm text-gray-400 truncate">
+                            <p className="text-sm neumorphic-subtitle truncate">
                               {track.artists.map(artist => artist.name).join(', ')}
                             </p>
-                            <p className="text-xs text-gray-500 truncate">
+                            <p className="text-xs neumorphic-subtitle truncate">
                               {track.album.name}
                             </p>
                           </div>
 
                           {/* BPM and Duration */}
-                          <div className="flex items-center gap-4 text-sm text-gray-400">
+                          <div className="flex items-center gap-4 text-sm neumorphic-subtitle">
                             <div className="flex items-center gap-1">
                               <Zap className="w-4 h-4" />
                               <span>{Math.round(track.tempo || 0)}</span>
