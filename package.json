@@ -1,30 +1,101 @@
-
 {
   "name": "capys-playlist-organizer",
   "version": "0.1.0",
+  "description": "Transform your Spotify playlists into DJ-ready masterpieces with real-time BPM & key analysis",
+  "author": "Capybara Watanabe (Zach)",
   "private": true,
+  "main": "electron/main.js",
+  "homepage": "./",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "electron": "electron .",
+    "electron-dev": "concurrently \"npm run dev\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron-pack": "npm run build && electron-builder",
+    "preelectron-pack": "npm run build",
+    "dist": "npm run build && electron-builder --publish=never",
+    "dist-mac": "npm run build && electron-builder --mac --publish=never"
   },
   "dependencies": {
+    "autoprefixer": "^10.4.16",
+    "lucide-react": "^0.294.0",
     "next": "14.0.4",
+    "postcss": "^8.4.32",
     "react": "^18",
     "react-dom": "^18",
     "spotify-web-api-node": "^5.0.2",
-    "lucide-react": "^0.294.0",
-    "tailwindcss": "^3.3.0",
-    "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.32"
+    "tailwindcss": "^3.3.0"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "concurrently": "^9.2.1",
+    "electron": "^38.1.1",
+    "electron-builder": "^26.0.12",
+    "electron-icon-builder": "^2.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
-    "typescript": "^5"
+    "sharp": "^0.34.4",
+    "typescript": "^5",
+    "wait-on": "^9.0.0"
+  },
+  "build": {
+    "appId": "com.capybara.playlist-organizer",
+    "productName": "Capy's Amazing Playlist Organizer",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "out/**/*",
+      "electron/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.music",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "icon": "public/icon.png",
+      "darkModeSupport": true,
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist"
+    },
+    "dmg": {
+      "title": "Capy's Amazing Playlist Organizer",
+      "icon": "public/icon.png",
+      "background": "public/dmg-background.png",
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "publish": null
   }
 }

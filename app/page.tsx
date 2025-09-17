@@ -5,6 +5,7 @@ import { Music, Play, Pause, Loader2, CheckCircle, AlertCircle, Info, Disc3, Ref
 import { SpotifyTrack, OrganizedPlaylist, SpotifyPlaylist, SpotifyUser } from './types'
 import { organizePlaylist } from './utils/playlistOrganizer'
 import { createSpotifyPlaylist, addTracksToPlaylist, verifyPlaylistExists } from './utils/spotifyApi'
+import { getSpotifyAuthUrl, handleSpotifyCallback, clearSpotifyAuth } from './utils/spotifyAuth'
 import PlaylistSelector from './components/PlaylistSelector'
 import TrackList from './components/TrackList'
 
@@ -46,17 +47,27 @@ export default function Home() {
   // Check for access token in URL params (from OAuth callback)
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const urlParams = new URLSearchParams(window.location.search)
-      const token = urlParams.get('access_token')
-      const error = urlParams.get('error')
+      // Check for token in URL hash (client-side auth)
+      const token = handleSpotifyCallback()
       
       if (token) {
         setAccessToken(token)
-        // Clean up URL
-        window.history.replaceState({}, document.title, window.location.pathname)
+        clearSpotifyAuth()
         setMessage({ type: 'success', text: 'Successfully connected to Spotify!' })
-      } else if (error) {
-        setMessage({ type: 'error', text: `Authentication failed: ${error}` })
+      } else {
+        // Check for token in URL search params (server-side auth)
+        const urlParams = new URLSearchParams(window.location.search)
+        const searchToken = urlParams.get('access_token')
+        const error = urlParams.get('error')
+        
+        if (searchToken) {
+          setAccessToken(searchToken)
+          // Clean up URL
+          window.history.replaceState({}, document.title, window.location.pathname)
+          setMessage({ type: 'success', text: 'Successfully connected to Spotify!' })
+        } else if (error) {
+          setMessage({ type: 'error', text: `Authentication failed: ${error}` })
+        }
       }
     }
   }, [])
@@ -117,7 +128,8 @@ export default function Home() {
     setPlaylistName(`${playlist.name} - Organized by Capy`)
     
     try {
-      const response = await fetch(`/api/playlist-tracks?playlistId=${playlist.id}`, {
+      // Fetch tracks directly from Spotify API
+      const response = await fetch(`https://api.spotify.com/v1/playlists/${playlist.id}/tracks`, {
         headers: {
           'Authorization': `Bearer ${accessToken}`
         }
@@ -129,14 +141,17 @@ export default function Home() {
       
       const data = await response.json()
       
-      if (data.tracks.length === 0) {
+      // Extract track objects from the response
+      const tracks = data.items.map((item: any) => item.track).filter((track: any) => track !== null)
+      
+      if (tracks.length === 0) {
         setMessage({ type: 'info', text: 'This playlist contains no tracks.' })
         setTracks([])
         return
       }
       
-      setTracks(data.tracks)
-      setMessage({ type: 'success', text: `Loaded ${data.tracks.length} tracks from playlist. Click 'Analyze All Tracks' to get BPM and key information using real-time audio analysis.` })
+      setTracks(tracks)
+      setMessage({ type: 'success', text: `Loaded ${tracks.length} tracks from playlist. Click 'Analyze All Tracks' to get BPM and key information using real-time audio analysis.` })
       
     } catch (error) {
       setMessage({ type: 'error', text: 'Failed to load playlist tracks' })
@@ -400,7 +415,7 @@ export default function Home() {
               </p>
               
               <a
-                href="/api/auth/spotify"
+                href={getSpotifyAuthUrl()}
                 className="btn-primary w-full text-lg py-4 flex items-center justify-center"
               >
                 <Disc3 className="w-6 h-6 mr-3" />
